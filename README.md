@@ -24,7 +24,7 @@ Alpine Linux based images to provide all necessaries environment for completing 
 Simply run this command after the image pulled:
 
 ```bash
-docker run -it --name "(Container name)" --mount type=bind,src=/path/to/CS3103/src,dst=/mnt/CS3103 cs3103pico:latest
+docker run -it --name "(Container name)" --mount type=bind,src=/path/to/CS3103/src,dst=/mnt/CS3103 rk0d/cs3103pico:latest
 ```
 
 ## License
