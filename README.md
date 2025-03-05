@@ -7,7 +7,6 @@ Alpine Linux based images to provide all necessaries environment for completing 
 (Exclude all bundled dependencies from Alpine Linux)
 
 * Python 2
-    * `pip`
 * GNU compilers
     * `gcc`
     * `g++`
