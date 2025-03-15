@@ -18,6 +18,8 @@ Alpine Linux based images to provide all necessaries environment for completing 
 * `mc`
 * `nano`
 * `htop`
+* `man` (Starting from `202504` tags)
+    * Alpine Linux does not bundled with documentations when installing packages. Therefore, to get documentations from installed packages, please run `/opt/fetch_manpage.sh` afterward.
 
 ## Usage
 

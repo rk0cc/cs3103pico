@@ -31,6 +31,12 @@ RUN tar -xJf /tmp/python2.tar.xz -C /tmp && rm /tmp/python2.tar.xz
 RUN cd /tmp/Python-2.7.18 && ./configure && make install
 RUN rm -rf /tmp/Python-2.7.18
 
+# Install man pages and documentation files
+RUN apk add mandoc man-pages
+COPY fetch_manpage.sh /opt/fetch_manpage.sh
+RUN chmod +x /opt/fetch_manpage.sh
+RUN /opt/fetch_manpage.sh
+
 # Provide better zsh prompt
 RUN echo 'PROMPT="%n@%m:%d> "' >> /etc/zsh/zshrc
 
