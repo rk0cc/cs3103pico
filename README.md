@@ -29,6 +29,8 @@ Simply run this command after the image pulled:
 docker run -it --name "(Container name)" --mount type=bind,src=/path/to/CS3103/src,dst=/mnt/CS3103 rk0d/cs3103pico:latest
 ```
 
+Then, you can access any CS3103 source codes in `/mnt/CS3103` directory.
+
 ## License
 
 AGPL 3
