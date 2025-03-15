@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 # This script will automatically install man pages via `apk` commands
 # as Alpine Linux DOES NOT AUTOMATICALLY INSTALL documentation 
