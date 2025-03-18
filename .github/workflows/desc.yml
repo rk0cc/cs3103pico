@@ -1,0 +1,21 @@
+name: Update description content in Docker Hub
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+jobs:
+  upload:
+    name: Update Docker descriptions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Update description from Readme.md
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PAT }}
+          repository: ${{ vars.DOCKERHUB_USER }}/${{ vars.DOCKERHUB_IMGNAME }}
+          enable-url-completion: true

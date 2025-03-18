@@ -37,20 +37,3 @@ jobs:
           context: .
           push: true
           tags: ${{ env.FULL_IMGNAME }}:${{ steps.pushat.outputs.PUSHAT }}
-  update_desc:
-    name: Update Docker descriptions
-    needs:
-      - upload
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.STABLE_BRANCH }}
-      - name: Update description from Readme.md
-        uses: peter-evans/dockerhub-description@v4
-        with:
-          username: ${{ vars.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PAT }}
-          repository: ${{ vars.DOCKERHUB_USER }}/${{ vars.DOCKERHUB_IMGNAME }}
-          enable-url-completion: true
