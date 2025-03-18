@@ -4,8 +4,8 @@ Alpine Linux based images to provide all necessaries environment for completing 
 
 ## Available tags
 
-* `latest` [![Upload pre-release image to Docker Hub](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml/badge.svg?branch=main)](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml): Synchronize content from repository and push to Docker Hub if the image built successfully.
-* `<full year><month>` [![Upload stable image to Docker Hub](https://github.com/rk0cc/cs3103pico/actions/workflows/release.yml/badge.svg?branch=stable)](https://github.com/rk0cc/cs3103pico/actions/workflows/release.yml): Images built based on `stable` branch content for each quarters of the year (e.g. `202504` refers to this image built at April, 2025).
+* `pre` [![Upload pre-release image to Docker Hub](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml/badge.svg?branch=main)](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml): Synchronize content from repository and push to Docker Hub if the image built successfully.
+* `<YYYY><MM>`, `latest` [![Upload stable image to Docker Hub](https://github.com/rk0cc/cs3103pico/actions/workflows/release.yml/badge.svg?branch=stable)](https://github.com/rk0cc/cs3103pico/actions/workflows/release.yml): Images built based on `stable` branch content for each quarters of the year where `YYYY` and `MM` refers as full year and month in digits accordingly. `latest` tag is referring to the most recent released tag of `<YYYY><MM>`.
     * The image built automatically at the first date in January, April, July and October.
 
 Each image tags delivers the latest dependencies updates.
@@ -28,7 +28,7 @@ Each image tags delivers the latest dependencies updates.
 * `htop`
 * `zsh`
     * Default terminal when running in container.
-* `man` (Starting from `202504` tags)
+* `man`
     * Alpine Linux does not bundled with documentations when installing packages. Therefore, to get documentations from installed packages, please run `/opt/fetch_manpage.sh` afterward.
 
 ## Usage

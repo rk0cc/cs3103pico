@@ -35,4 +35,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.FULL_IMGNAME }}:${{ steps.pushat.outputs.PUSHAT }}
+          tags: |
+            ${{ env.FULL_IMGNAME }}:${{ steps.pushat.outputs.PUSHAT }}
+            ${{ env.FULL_IMGNAME }}:latest
