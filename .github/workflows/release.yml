@@ -1,11 +1,10 @@
-name: Release to Docker Hub
+name: Upload stable image to Docker Hub
 on:
   schedule:
     - cron: '0 0 1 1,4,7,10 *'
   workflow_dispatch:
 env:
-  USER_NAME: rk0d
-  IMAGE_NAME: cs3103pico
+  STABLE_BRANCH: stable
 jobs:
   upload:
     name: Build and upload Docker image
@@ -17,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.STABLE_BRANCH }}
       - name: Get year and month of pushing tags
         id: pushat
         run: echo "PUSHAT=$(date +'%Y%m')" >> "$GITHUB_OUTPUT"
@@ -25,19 +26,17 @@ jobs:
       - name: Login Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ env.USER_NAME }}
+          username: ${{ vars.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PAT }}
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v6
         env:
-          FULL_IMGNAME: ${{ env.USER_NAME }}/${{ env.IMAGE_NAME }}
+          FULL_IMGNAME: ${{ vars.DOCKERHUB_USER }}/${{ vars.DOCKERHUB_IMGNAME }}
         with:
           context: .
           push: true
-          tags: |
-            ${{ env.FULL_IMGNAME }}:latest
-            ${{ env.FULL_IMGNAME }}:${{ steps.pushat.outputs.PUSHAT }}
+          tags: ${{ env.FULL_IMGNAME }}:${{ steps.pushat.outputs.PUSHAT }}
   update_desc:
     name: Update Docker descriptions
     needs:
@@ -46,10 +45,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.STABLE_BRANCH }}
       - name: Update description from Readme.md
         uses: peter-evans/dockerhub-description@v4
         with:
-          username: ${{ env.USER_NAME }}
+          username: ${{ vars.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PAT }}
-          repository: ${{ env.USER_NAME }}/${{ env.IMAGE_NAME }}
+          repository: ${{ vars.DOCKERHUB_USER }}/${{ vars.DOCKERHUB_IMGNAME }}
           enable-url-completion: true
