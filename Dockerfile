@@ -21,7 +21,7 @@ FROM alpine:latest
 LABEL org.opencontainers.image.authors="CHAN Cheuk Long <clchan443-c@my.cityu.edu.hk>"
 
 # Install fundamental dependencies
-RUN apk update && apk --no-cache upgrade
+RUN apk --no-cache upgrade
 RUN apk --no-cache add nano gcc g++ make automake zsh unzip zip xz xz-dev mc curl bzip2 htop
 
 # Install legacy python and supporting dependencies
