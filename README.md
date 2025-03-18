@@ -4,9 +4,11 @@ Alpine Linux based images to provide all necessaries environment for completing 
 
 ## Available tags
 
-* `latest`: Syncornize content from this repository and push to Docker Hub if the image built successfully.
-* `<full year><month>`: Images built based on `stable` branch content in each quarters of the year (e.g. `202504` refers to this image built at April, 2025).
+* `latest` [![Upload pre-release image to Docker Hub](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml/badge.svg?branch=main)](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml): Synchronize content from repository and push to Docker Hub if the image built successfully.
+* `<full year><month>` [![Upload stable image to Docker Hub](https://github.com/rk0cc/cs3103pico/actions/workflows/release.yml/badge.svg?branch=stable)](https://github.com/rk0cc/cs3103pico/actions/workflows/release.yml): Images built based on `stable` branch content for each quarters of the year (e.g. `202504` refers to this image built at April, 2025).
     * The image built automatically at the first date in January, April, July and October.
+
+Each image tags delivers the latest dependencies updates.
 
 ## Installed dependencies
 
@@ -42,3 +44,7 @@ Then, you can access any CS3103 source codes in `/mnt/CS3103` directory.
 ## License
 
 AGPL 3
+
+## Links
+
+* [GitHub repository](https://github.com/rk0cc/cs3103pico)
