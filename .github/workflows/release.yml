@@ -7,7 +7,8 @@ env:
   USER_NAME: rk0d
   IMAGE_NAME: cs3103pico
 jobs:
-  build:
+  upload:
+    name: Build and upload Docker image
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -37,3 +38,18 @@ jobs:
           tags: |
             ${{ env.FULL_IMGNAME }}:latest
             ${{ env.FULL_IMGNAME }}:${{ steps.pushat.outputs.PUSHAT }}
+  update_desc:
+    name: Update Docker descriptions
+    needs:
+      - upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Update description from Readme.md
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ env.USER_NAME }}
+          password: ${{ secrets.DOCKERHUB_PAT }}
+          repository: ${{ env.USER_NAME }}/${{ env.IMAGE_NAME }}
+          enable-url-completion: true
