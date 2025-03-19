@@ -2,6 +2,7 @@ name: Upload stable image to Docker Hub
 on:
   schedule:
     - cron: '0 0 1 1,4,7,10 *'
+  workflow_dispatch:
 env:
   STABLE_BRANCH: stable
 jobs:
@@ -13,7 +14,7 @@ jobs:
       packages: write
       id-token: write
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         variant:
           - ""
