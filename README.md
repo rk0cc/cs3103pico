@@ -13,6 +13,7 @@ Alpine Linux based images to provide all necessaries environment for completing 
 * (No postfix): Basic variant that it only offers installed dependencies.
 * `-pip`: It offers `pip` command for installing Python 2 packages
     * It is not recommended to use `pip` in Python 2 since it has reached end of life at 2020. Therefore, avoid use this postfix if the tutorials or assignments do not require using additional packages.
+* `-powershell`: Use `pwsh` and uses as default shell instead of `zsh`.
 
 Each image tags delivers the latest dependencies updates.
 
@@ -32,7 +33,7 @@ Each image tags delivers the latest dependencies updates.
 * `mc`
 * `nano`
 * `htop`
-* `zsh`
+* `zsh` (except `-powershell`)
     * Default terminal when running in container.
 * `man`
     * Alpine Linux does not bundled with documentations when installing packages. Therefore, to get documentations from installed packages, please run `/opt/fetch_manpage.sh` afterward.

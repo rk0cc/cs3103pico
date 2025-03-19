@@ -18,6 +18,7 @@ jobs:
         variant:
           - ""
           - pip
+          - powershell
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

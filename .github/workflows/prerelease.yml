@@ -6,6 +6,7 @@ on:
     paths:
       - Dockerfile
       - pip.Dockerfile
+      - powershell.Dockerfile
       - .github/workflows/prerelease.yml
 jobs:
   upload:
@@ -21,6 +22,7 @@ jobs:
         variant:
           - ""
           - pip
+          - powershell
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
