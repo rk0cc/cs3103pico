@@ -13,7 +13,7 @@ Alpine Linux based images to provide all necessaries environment for completing 
 * (No postfix): Basic variant that it only offers installed dependencies.
 * `-pip`: It offers `pip` command for installing Python 2 packages
     * It is not recommended to use `pip` in Python 2 since it has reached end of life at 2020. Therefore, avoid use this postfix if the tutorials or assignments do not require using additional packages.
-* `-powershell`: Use `pwsh` and uses as default shell instead of `zsh`.
+* `-powershell`: Replace default shell of this image from `zsh` to `pwsh`.
 
 Each image tags delivers the latest dependencies updates.
 
