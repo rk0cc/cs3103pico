@@ -1,0 +1,36 @@
+name: Request new features for next release 
+description: Which features need to be added to fulfill requirements.
+labels:
+  - feature request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting this issue, please ensure your content must fulfill academic honesty that
+        exposing tutorials, assignments or examinations contents and it's associated source
+        codes publicly will **penalize** your academic result. As a result, any request with
+        violated academic honesty will be rejected as immediate as possible and redacted related
+        content.
+  - type: input
+    attributes:
+      label: Title
+      description: Which features you want to feature?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Description
+      description: Explain why this feature benefits on handling tasks.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Error logs
+      description: Please paste the stack trace or compile error message if necessary.
+      render: plain text
+  - type: checkboxes
+    attributes:
+      label: Confirmation
+      options:
+        - label: I confirmed all contents does not violate academic honesty.
+          required: true

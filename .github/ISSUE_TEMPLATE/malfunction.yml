@@ -1,0 +1,30 @@
+name: Container malfunction report
+description: Describe unexpected bahaviour occured when using this image
+labels:
+  - malfunction
+body:
+  - type: dropdown
+    attributes:
+      label: Release type
+      description: Which type of release you are using?
+      multiple: false
+      options:
+        - Pre-release
+        - Stable
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Description
+      description: Explain how this problem occurred in step by step.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: (Optional) Installed dependencies list
+      description: Please execute `apk info -v` and paste all outputs below 
+      placeholder: |
+        htop-3.3.0-r0
+        musl-1.2.5-r9
+        zsh-5.9-r4
+      render: plain text
