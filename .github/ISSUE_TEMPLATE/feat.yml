@@ -7,8 +7,8 @@ body:
     attributes:
       value: |
         Before submitting this issue, please ensure your content must fulfill academic honesty that
-        exposing tutorials, assignments or examinations contents and it's associated source
-        codes publicly will **penalize** your academic result. As a result, any request with
+        exposing tutorials, assignments or examinations content and their's associated source
+        code publicly will **penalize** your academic result. As a result, any request with
         violated academic honesty will be rejected as immediate as possible and redacted related
         content.
   - type: textarea
