@@ -11,12 +11,6 @@ body:
         codes publicly will **penalize** your academic result. As a result, any request with
         violated academic honesty will be rejected as immediate as possible and redacted related
         content.
-  - type: input
-    attributes:
-      label: Title
-      description: Which features you want to feature?
-    validations:
-      required: true
   - type: textarea
     attributes:
       label: Description
