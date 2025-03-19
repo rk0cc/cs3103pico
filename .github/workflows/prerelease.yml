@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - ?(*.)Dockerfile
+      - .github/workflows/prerelease.yml
 jobs:
   upload:
     name: Build and upload Docker image
