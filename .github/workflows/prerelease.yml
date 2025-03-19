@@ -4,7 +4,8 @@ on:
     branches:
       - main
     paths:
-      - ?(*.)Dockerfile
+      - Dockerfile
+      - pip.Dockerfile
       - .github/workflows/prerelease.yml
 jobs:
   upload:
