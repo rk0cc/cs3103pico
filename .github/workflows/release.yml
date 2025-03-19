@@ -12,14 +12,23 @@ jobs:
       contents: read
       packages: write
       id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        variant:
+          - ""
+          - pip
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           ref: ${{ env.STABLE_BRANCH }}
       - name: Get year and month of pushing tags
-        id: pushat
+        id: push_at
         run: echo "PUSHAT=$(date +'%Y%m')" >> "$GITHUB_OUTPUT"
+      - name: Define Dockerfile path
+        id: target_path
+        run: echo "DOCKERFILE_PATH=./${{ matrix.variant && format('{0}.Dockerfile', matrix.variant) || 'Dockerfile' }}" >> "$GITHUB_OUTPUT"
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login Docker Hub
@@ -32,9 +41,11 @@ jobs:
         uses: docker/build-push-action@v6
         env:
           FULL_IMGNAME: ${{ vars.DOCKERHUB_USER }}/${{ vars.DOCKERHUB_IMGNAME }}
+          POSTFIX_TAG: ${{ matrix.variant && format('-{0}', matrix.variant) || '' }}
         with:
           context: .
           push: true
           tags: |
-            ${{ env.FULL_IMGNAME }}:${{ steps.pushat.outputs.PUSHAT }}
-            ${{ env.FULL_IMGNAME }}:latest
+            ${{ env.FULL_IMGNAME }}:${{ steps.push_at.outputs.PUSHAT }}${{ env.POSTFIX_TAG }}
+            ${{ env.FULL_IMGNAME }}:latest${{ env.POSTFIX_TAG }}
+          file: ${{ steps.target_path.outputs.DOCKERFILE_PATH }}
