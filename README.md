@@ -2,6 +2,10 @@
 
 Alpine Linux based images to provide all necessaries environment for completing CS3103 tutorial locally.
 
+> [!WARNING]
+> This Docker image is designed for compiling and running programs in Linux environment locally. The executables are **incompatible** to run in CS Gateway server.
+> If you wish submitting executables for assessments, it is preferred to use the gateway server instead.
+
 ## Available tags
 
 * `pre` [![Upload pre-release image to Docker Hub](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml/badge.svg?branch=main)](https://github.com/rk0cc/cs3103pico/actions/workflows/prerelease.yml): Synchronize content from repository and push to Docker Hub if the image built successfully.
