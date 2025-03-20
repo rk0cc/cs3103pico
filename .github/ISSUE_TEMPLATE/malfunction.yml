@@ -6,7 +6,7 @@ body:
   - type: input
     attributes:
       label: Release tag
-      description: Which image release you are using now? (Find `CS3103PICO_TAG` value in `/etc/os-release`/ If this absent, it possibility prior release of `202504`.)
+      description: Which image release you are using now? (Find `CS3103PICO_TAG` value in `/etc/os-release`. If this absent, it possibility prior release of `202504`.)
       placeholder: '202504'
     validations:
       required: true
