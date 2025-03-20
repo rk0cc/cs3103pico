@@ -48,3 +48,4 @@ jobs:
           push: true
           tags: ${{ env.FULL_IMGNAME }}:pre${{ matrix.variant && format('-{0}', matrix.variant) || '' }}
           file: ${{ steps.target_path.outputs.DOCKERFILE_PATH }}
+          build-args: TAGNAME=pre

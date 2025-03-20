@@ -20,6 +20,9 @@ FROM alpine:latest
 # Author information
 LABEL org.opencontainers.image.authors="CHAN Cheuk Long <clchan443-c@my.cityu.edu.hk>"
 
+# Argument uses for representing image tags (without postfix)
+ARG TAGNAME=undefined
+
 # Install fundamental dependencies
 RUN apk --no-cache upgrade
 RUN apk --no-cache add nano gcc g++ make automake readline powershell unzip zip xz xz-dev mc curl bzip2 htop
@@ -36,6 +39,9 @@ RUN apk --no-cache add mandoc man-pages
 COPY fetch_manpage.sh /opt/fetch_manpage.sh
 RUN chmod +x /opt/fetch_manpage.sh
 RUN /opt/fetch_manpage.sh
+
+# Assign image tag info
+RUN echo "CS3103PICO_TAG=${TAGNAME}" >> /etc/os-release
 
 # Invoke shell
 CMD ["/usr/bin/pwsh"]

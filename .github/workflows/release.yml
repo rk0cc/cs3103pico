@@ -51,3 +51,4 @@ jobs:
             ${{ env.FULL_IMGNAME }}:${{ steps.push_at.outputs.PUSHAT }}${{ env.POSTFIX_TAG }}
             ${{ env.FULL_IMGNAME }}:latest${{ env.POSTFIX_TAG }}
           file: ${{ steps.target_path.outputs.DOCKERFILE_PATH }}
+          build-args: TAGNAME=${{ steps.push_at.outputs.PUSHAT }}
