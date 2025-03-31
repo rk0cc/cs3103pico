@@ -25,7 +25,7 @@ ARG TAGNAME=undefined
 
 # Install fundamental dependencies
 RUN apk --no-cache upgrade
-RUN apk --no-cache add nano gcc g++ make automake readline powershell unzip zip xz xz-dev mc curl bzip2 htop
+RUN apk --no-cache add nano gcc g++ make automake readline powershell unzip zip xz xz-dev mc curl bzip2 htop valgrind
 
 # Install legacy python and supporting dependencies
 RUN apk --no-cache add musl-dev libffi-dev openssl-dev bzip2-dev zlib-dev sqlite-dev readline-dev gdbm-dev libxml2-dev libxslt-dev libjpeg-turbo-dev libpng-dev freetype-dev

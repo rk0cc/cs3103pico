@@ -41,6 +41,7 @@ Each image tags delivers the latest dependencies updates.
     * Default terminal when running in container.
 * `man`
     * Alpine Linux does not bundled with documentations when installing packages. Therefore, to get documentations from installed packages, please run `/opt/fetch_manpage.sh` afterward.
+* `valgrind`
 
 ## Usage
 
