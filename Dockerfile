@@ -31,8 +31,9 @@ RUN apk --no-cache add nano gcc g++ make automake zsh unzip zip xz xz-dev mc cur
 RUN apk --no-cache add musl-dev libffi-dev openssl-dev bzip2-dev zlib-dev sqlite-dev readline-dev gdbm-dev libxml2-dev libxslt-dev libjpeg-turbo-dev libpng-dev freetype-dev
 ADD https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz /tmp/python2.tar.xz
 RUN tar -xJf /tmp/python2.tar.xz -C /tmp && rm /tmp/python2.tar.xz
-RUN cd /tmp/Python-2.7.18 && ./configure && make altinstall
+RUN cd /tmp/Python-2.7.18 && ./configure && make install
 RUN rm -rf /tmp/Python-2.7.18
+RUN rm /usr/local/bin/python
 
 # Install man pages and documentation files
 RUN apk --no-cache add mandoc man-pages
