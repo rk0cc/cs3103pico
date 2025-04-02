@@ -25,19 +25,20 @@ ARG TAGNAME=undefined
 
 # Install fundamental dependencies
 RUN apk --no-cache upgrade
-RUN apk --no-cache add nano gcc g++ make automake zsh unzip zip xz xz-dev mc curl bzip2 htop valgrind
+RUN apk --no-cache add nano gcc g++ make automake zsh unzip zip xz xz-dev mc curl bzip2 htop valgrind python3 py3-pip gdb
 
 # Install legacy python and supporting dependencies
 RUN apk --no-cache add musl-dev libffi-dev openssl-dev bzip2-dev zlib-dev sqlite-dev readline-dev gdbm-dev libxml2-dev libxslt-dev libjpeg-turbo-dev libpng-dev freetype-dev
 ADD https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz /tmp/python2.tar.xz
 RUN tar -xJf /tmp/python2.tar.xz -C /tmp && rm /tmp/python2.tar.xz
-RUN cd /tmp/Python-2.7.18 && ./configure && make install
+RUN cd /tmp/Python-2.7.18 && ./configure && make altinstall
 RUN rm -rf /tmp/Python-2.7.18
 
 # Install pip
 ADD https://bootstrap.pypa.io/pip/2.7/get-pip.py /tmp/get-pip.py
 RUN python2 /tmp/get-pip.py
 RUN rm /tmp/get-pip.py
+RUN rm /usr/local/bin/pip
 
 # Install man pages and documentation files
 RUN apk --no-cache add mandoc man-pages

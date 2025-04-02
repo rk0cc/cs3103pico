@@ -15,8 +15,8 @@ Alpine Linux based images to provide all necessaries environment for completing 
 ### Postfix tags (`<tag name>-<postfix>`)
 
 * (No postfix): Basic variant that it only offers installed dependencies.
-* `-pip`: It offers `pip` command for installing Python 2 packages
-    * It is not recommended to use `pip` in Python 2 since it has reached end of life at 2020. Therefore, avoid use this postfix if the tutorials or assignments do not require using additional packages.
+* `-pip`: It offers `pip2` command for installing Python 2 packages
+    * It is not recommended to use `pip2` in Python 2 since it has reached end of life at 2020. Therefore, avoid use this postfix if the tutorials or assignments do not require using additional packages.
 * `-powershell`: Replace default shell of this image from `zsh` to `pwsh`.
 
 Each image tags delivers the latest dependencies updates.
@@ -26,6 +26,8 @@ Each image tags delivers the latest dependencies updates.
 (Exclude all bundled dependencies from Alpine Linux)
 
 * Python 2
+* Python 3
+    * `pip3` included
 * GNU compilers
     * `gcc`
     * `g++`
@@ -42,6 +44,7 @@ Each image tags delivers the latest dependencies updates.
 * `man`
     * Alpine Linux does not bundled with documentations when installing packages. Therefore, to get documentations from installed packages, please run `/opt/fetch_manpage.sh` afterward.
 * `valgrind`
+* `gdb`
 
 ## Usage
 
