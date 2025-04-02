@@ -40,7 +40,7 @@ RUN apk --no-cache add mandoc man-pages
 COPY fetch_manpage.sh /opt/fetch_manpage.sh
 RUN chmod +x /opt/fetch_manpage.sh
 RUN /opt/fetch_manpage.sh
-RUN rm /var/cache/apk
+RUN rm /var/cache/apk/*
 
 # Provide better zsh prompt
 RUN echo 'PROMPT="%n@%m:%d> "' >> /etc/zsh/zshrc
