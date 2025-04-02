@@ -40,6 +40,7 @@ RUN apk --no-cache add mandoc man-pages
 COPY fetch_manpage.sh /opt/fetch_manpage.sh
 RUN chmod +x /opt/fetch_manpage.sh
 RUN /opt/fetch_manpage.sh
+RUN rm /var/cache/apk
 
 # Assign image tag info
 RUN echo "CS3103PICO_TAG=${TAGNAME}" >> /etc/os-release
