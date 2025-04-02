@@ -5,7 +5,7 @@
 # dependencies that you cannot visit usage of command via `man <command name>`
 # if `-doc` packages does not included in `apk add` command.
 
-if [ $UID != 0 && $EUID != 0 ]; then
+if [ "$EUID" != 0 ]; then
     echo "This script must be run as root" >&2
     exit 1
 fi
