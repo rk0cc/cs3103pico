@@ -8,6 +8,8 @@ on:
       - pip.Dockerfile
       - powershell.Dockerfile
       - .github/workflows/prerelease.yml
+  schedule:
+    - cron: '0 0 1 1,4,7,10 *'
 jobs:
   upload:
     name: Build and upload Docker image
