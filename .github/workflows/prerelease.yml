@@ -8,6 +8,7 @@ on:
       - pip.Dockerfile
       - powershell.Dockerfile
       - .github/workflows/prerelease.yml
+      - fetch_manpage.sh
   schedule:
     - cron: '0 0 1 1,4,7,10 *'
 jobs:
