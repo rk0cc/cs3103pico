@@ -18,6 +18,7 @@ Alpine Linux based images to provide all necessaries environment for completing 
 * `-pip`: It offers `pip2` command for installing Python 2 packages
     * It is not recommended to use `pip2` in Python 2 since it has reached end of life at 2020. Therefore, avoid use this postfix if the tutorials or assignments do not require using additional packages.
 * `-powershell`: Replace default shell of this image from `zsh` to `pwsh`.
+* `-manless`: Excluding manpage and packages' documentation packages to minimize image size.
 
 Each image tags delivers the latest dependencies updates.
 
@@ -43,6 +44,7 @@ Each image tags delivers the latest dependencies updates.
     * Default terminal when running in container.
 * `man`
     * Alpine Linux does not bundled with documentations when installing packages. Therefore, to get documentations from installed packages, please run `/opt/fetch_manpage.sh` afterward.
+    * It does not included in `-manless` tag, as well as `/opt/fetch_manpage.sh` is absented.
 * `valgrind` (Since `202504`)
 * `gdb` (Since `202507`)
 

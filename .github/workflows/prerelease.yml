@@ -3,12 +3,13 @@ on:
   push:
     branches:
       - main
-    paths:
-      - Dockerfile
-      - pip.Dockerfile
-      - powershell.Dockerfile
-      - .github/workflows/prerelease.yml
-      - fetch_manpage.sh
+    paths-ignore:
+      - LICENSE
+      - README.md
+      - .gitignore
+      - .dockerignore
+      - .github/**
+      - "!.github/workflows/prerelease.yml"
   schedule:
     - cron: '0 0 1 1,4,7,10 *'
 jobs:
@@ -26,6 +27,7 @@ jobs:
           - ""
           - pip
           - powershell
+          - manless
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
